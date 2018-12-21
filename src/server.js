@@ -76,7 +76,7 @@ let surveyCanvas = new CreateCanvas();
 /* Create the single select option to get the users rating */
 surveyCanvas.add_components({type: "single-select",
     id: "rating",
-    label: "What would you rate this from 1 to 5",
+    label: "Would you recommend Dynatrace to a friend or colleague",
     options: [
         {type: "option", id: "one", text: "1"},
         {type: "option", id: "two", text: "2"},
@@ -84,7 +84,10 @@ surveyCanvas.add_components({type: "single-select",
         {type: "option", id: "four", text: "4"},
         {type: "option", id: "five", text: "5"},
         {type: "option", id: "six", text: "6"},
-        {type: "option", id: "seven", text: "7"}
+        {type: "option", id: "seven", text: "7"},
+        {type: "option", id: "eight", text: "8"},
+        {type: "option", id: "nine", text: "9"},
+        {type: "option", id: "ten", text: "10"}
     ]
 });
 /* Create the question to explain the rating */
