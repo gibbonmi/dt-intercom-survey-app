@@ -1,0 +1,5 @@
+node_modules/
+.idea/
+cmds-to-automate.txt
+*.iml
+package-lock.json
