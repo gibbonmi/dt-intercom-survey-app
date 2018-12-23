@@ -3,13 +3,9 @@ data "aws_route53_zone" "main-site" {
 }
 
 resource "aws_route53_record" "www-demo" {
-  name = "${var.domain}.${data.aws_route53_zone.main-site.name}"
-  type = "A"
+  name = "demo.${data.aws_route53_zone.main-site.name}"
+  type = "CNAME"
   zone_id = "${data.aws_route53_zone.main-site.zone_id}"
-
-  alias {
-    evaluate_target_health = true
-    name = "${module.ecs.alb_dns_name}"
-    zone_id = "${module.ecs.alb_zone_id}"
-  }
+  records = ["${module.ecs.alb_dns_name}"]
+  ttl = "300"
 }

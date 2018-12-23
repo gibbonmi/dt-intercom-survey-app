@@ -101,7 +101,7 @@ resource "aws_alb_listener" "intercom-survey-app" {
     target_group_arn = "${aws_alb_target_group.alb_target_group.arn}"
   }
   load_balancer_arn = "${aws_alb.alb-intercom-survey-app.arn}"
-  port = 443
+  port = "443"
   protocol = "HTTPS"
   ssl_policy = "ELBSecurityPolicy-2016-08"
   certificate_arn = "arn:aws:acm:us-east-1:406709384314:certificate/26cd79dc-b3f9-4b48-8a89-7a5e358063bf"
@@ -178,9 +178,9 @@ resource "aws_security_group" "ecs_service" {
   }
 
   ingress {
-    from_port = 3002
+    from_port = 0
     protocol = "tcp"
-    to_port = 3002
+    to_port = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
 
