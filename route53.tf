@@ -3,5 +3,5 @@ resource "aws_route53_record" "www-demo" {
   type = "CNAME"
   zone_id = "Z1E21SUNR3V3BD"
   ttl = "300"
-  records = ["${module.ecs.}"]
+  records = ["${module.ecs.alb_dns_name}"]
 }

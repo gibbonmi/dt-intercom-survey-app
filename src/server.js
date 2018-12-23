@@ -9,9 +9,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname));
 
-const appPort = 3002
+const appPort = 3002;
 
 // http://expressjs.com/en/starter/basic-routing.html
+app.get('/healthcheck', (req, res) => res.sendStatus(200));
 app.get('/', function(request, response) {
     response.sendFile(__dirname + 'index.html');
 });
