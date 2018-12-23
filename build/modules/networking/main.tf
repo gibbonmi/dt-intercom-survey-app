@@ -42,7 +42,7 @@ resource "aws_subnet" "public_subnet" {
   count = "${length(var.public_subnets_cidr)}"
   cidr_block = "${element(var.public_subnets_cidr, count.index)}"
   availability_zone = "${element(var.availability_zones, count.index)}"
-  map_public_ip_on_launch = false
+  map_public_ip_on_launch = true
 
   tags {
     Name        = "${var.environment}-${element(var.availability_zones, count.index)}-public-subnet"
@@ -127,7 +127,7 @@ resource "aws_security_group" "default" {
     from_port = "0"
     to_port   = "0"
     protocol  = "-1"
-    self      = "true"
+    self      = true
   }
 
   tags {

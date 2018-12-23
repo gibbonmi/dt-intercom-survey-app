@@ -53,6 +53,10 @@ resource "aws_alb_target_group" "alb_target_group" {
   lifecycle {
     create_before_destroy = true
   }
+
+  health_check {
+    path = "/healthcheck"
+  }
 }
 
 /* alb security group */
@@ -65,7 +69,7 @@ resource "aws_security_group" "web_inbound_sg" {
     from_port = 443
     protocol = "tcp"
     to_port = 443
-  cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
