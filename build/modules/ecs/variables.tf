@@ -21,6 +21,11 @@ variable "subnets_ids" {
   description = "The private subnets to use"
 }
 
+variable "public_subnet_ids" {
+  type        = "list"
+  description = "The private subnets to use"
+}
+
 variable "repository_name" {
   description = "The name of the repisitory"
 }

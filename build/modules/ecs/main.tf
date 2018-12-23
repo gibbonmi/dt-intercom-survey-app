@@ -109,7 +109,7 @@ data "aws_iam_policy_document" "ecs_service_role" {
     effect = "Allow"
     actions = ["sts:AssumeRole"]
     principals {
-      identifiers = ["ecs.amazonaws.com"]
+      identifiers = ["ecs.amazonaws.com", "ec2.amazonaws.com"]
       type = "Service"
     }
   }
@@ -162,6 +162,13 @@ resource "aws_security_group" "ecs_service" {
   egress {
     from_port = 0
     protocol = "-1"
+    to_port = 0
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port = 8
+    protocol = "icmp"
     to_port = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
