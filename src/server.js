@@ -73,7 +73,7 @@ app.post("/initialize", (request, response) => {
 /* Create a new question canvas */
 let surveyCanvas = new CreateCanvas();
 
-/* Create the single select option to get the users rating */
+/* Create the single select option to get the rating */
 surveyCanvas.add_components({type: "single-select",
     id: "rating",
     label: "Would you recommend Dynatrace to a friend or colleague",
