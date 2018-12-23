@@ -13,7 +13,7 @@ resource "aws_route53_record" "www-test" {
   zone_id = "${aws_route53_zone.primary_route.id}"
 
   alias {
-    evaluate_target_health = true
+    evaluate_target_health = false
     name = "${module.ecs.alb_dns_name}"
     zone_id = "${module.ecs.alb_zone_id}"
   }

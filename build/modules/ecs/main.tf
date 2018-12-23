@@ -1,3 +1,13 @@
+/* Cloudwatch log group */
+resource "aws_cloudwatch_log_group" "intercom-survey-app" {
+  name = "intercom-survey-app"
+
+  tags {
+    Environment = "${var.environment}"
+    Application = "Intercom-Survey-App"
+  }
+}
+
 /* ecr repository */
 resource "aws_ecr_repository" "intercom-survey-app" {
   name = "${var.repository_name}"
@@ -13,6 +23,7 @@ data "template_file" "web_task" {
 
   vars {
     image = "${aws_ecr_repository.intercom-survey-app.repository_url}"
+    log_group = "${aws_cloudwatch_log_group.intercom-survey-app.name}"
   }
 }
 

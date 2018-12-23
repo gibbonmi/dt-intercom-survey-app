@@ -9,6 +9,14 @@
       }
     ],
     "memory": 300,
-    "networkMode": "awsvpc"
+    "networkMode": "awsvpc",
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${log_group}",
+        "awslogs-region": "us-east-1",
+        "awslogs-stream-prefix": "web"
+      }
+    }
   }
 ]
