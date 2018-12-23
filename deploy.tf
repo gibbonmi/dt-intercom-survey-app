@@ -28,5 +28,4 @@ module "ecs" {
   security_groups_ids = [
     "${module.networking.security_groups_ids}"
   ]
-
 }
