@@ -20,8 +20,8 @@ data "template_file" "codepipeline_policy" {
 
 resource "aws_iam_role_policy" "codepipeline_policy" {
   name = "codepipeline_policy"
-  policy = "${aws_iam_role.codepipeline_role.id}"
-  role = "${data.template_file.codepipeline_policy.rendered}"
+  role = "${aws_iam_role.codepipeline_role.id}"
+  policy = "${data.template_file.codepipeline_policy.rendered}"
 }
 
 /*** CodeBuild ***/
@@ -82,7 +82,7 @@ resource "aws_codepipeline" "pipeline" {
     type = "S3"
   }
   name = "intercom-survey-app-pipeline"
-  role_arn = "${aws_iam_role.codebuild_role.arn}"
+  role_arn = "${aws_iam_role.codepipeline_role.arn}"
   stage {
     name = "Source"
 
@@ -102,7 +102,7 @@ resource "aws_codepipeline" "pipeline" {
     }
   }
   stage {
-    name = " Build"
+    name = "Build"
 
     action {
       category = "Build"
@@ -114,7 +114,7 @@ resource "aws_codepipeline" "pipeline" {
       output_artifacts = ["imagedefinitions"]
 
       configuration {
-        ProjectName = "intercom-survey-app-codebuild"
+        ProjectName = "intercom-survey-app-build"
       }
     }
   }
