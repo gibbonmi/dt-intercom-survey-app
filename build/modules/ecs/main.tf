@@ -49,6 +49,7 @@ resource "aws_alb_target_group" "alb_target_group" {
   protocol = "HTTP"
   vpc_id = "${var.vpc_id}"
   target_type = "ip"
+  deregistration_delay = 10
 
   lifecycle {
     create_before_destroy = true
@@ -205,7 +206,7 @@ resource "aws_ecs_service" "web" {
 
   network_configuration {
     security_groups = ["${var.security_groups_ids}", "${aws_security_group.ecs_service.id}"]
-    subnets = ["${var.subnets_ids}"]
+    subnets = ["${var.public_subnet_ids}"]
   }
 
   load_balancer {
