@@ -1,5 +1,7 @@
-node_modules/
+**/.terraform
 .idea/
+node_modules/
 cmds-to-automate.txt
+terraform.tfstate
+terraform.tfstate.backup
 *.iml
-package-lock.json
