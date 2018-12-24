@@ -117,26 +117,26 @@ response.send(surveyCanvas.get_canvas());
 */
 app.post("/submit", (request, response) => {
     const body = request.body;
-console.log(body);
-switch(body.component_id) {
-    case 'question_submit':
-        let submitCanvas = new CreateCanvas();
-        submitCanvas.add_components({
-            type: "text",
-            text: "Thanks you for your feedback",
-            align: "center",
-            style: "header" });
-        response.send(submitCanvas.get_canvas());
-        break;
-    default:
-        /* We should not go in here */
-        let wrongCanvas = new CreateCanvas();
-        wrongCanvas.add_components({
-            type: "text",
-            text: "This should not happen!!",
-            align: "center",
-            style: "header" });
-        response.send(wrongCanvas.get_canvas());
-        break;
-}
+    console.log(body);
+    switch(body.component_id) {
+        case 'question_submit':
+            let submitCanvas = new CreateCanvas();
+            submitCanvas.add_components({
+                type: "text",
+                text: "Thanks you for your feedback",
+                align: "center",
+                style: "header" });
+            response.send(submitCanvas.get_canvas());
+            break;
+        default:
+            /* We should not go in here */
+            let wrongCanvas = new CreateCanvas();
+            wrongCanvas.add_components({
+                type: "text",
+                text: "This should not happen!!",
+                align: "center",
+                style: "header" });
+            response.send(wrongCanvas.get_canvas());
+            break;
+    }
 });
