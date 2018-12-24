@@ -282,7 +282,7 @@ resource "aws_appautoscaling_policy" "down" {
 
 /* metric used for auto scale */
 resource "aws_cloudwatch_metric_alarm" "service_cpu_high" {
-  alarm_name = "${var.environment}_openjobs_web_cpu_utilization_high"
+  alarm_name = "${var.environment}_intercom_survey_app_web_cpu_utilization_high"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods = "2"
   metric_name = "CPUUtilization"
