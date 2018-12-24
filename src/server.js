@@ -14,7 +14,7 @@ const appPort = 3002;
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/healthcheck', (req, res) => res.sendStatus(200));
 app.get('/', function(request, response) {
-    response.sendFile(__dirname + 'index.html');
+    response.sendFile(__dirname + '/views/index.html');
 });
 
 const listener = app.listen(appPort, () => {
