@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
+let canvas = require('./components/Canvas');
+
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,9 +34,9 @@ my_canvas.add_components({ type: "input", id: "my_input", label: "Add some input
 Step 3: optionally add some stored data if you need it
 my_canvas.add_stored_data({some_data: "this data"})
 */
-class CreateCanvas{
+/*class CreateCanvas{
 
-    /* this is the main canvas object which you will use when creating an app */
+    /!* this is the main canvas object which you will use when creating an app *!/
     constructor(){
         this.canvas = {
             canvas: {
@@ -46,22 +48,22 @@ class CreateCanvas{
         };
     }
 
-    /* Call this method to add components to the app */
+    /!* Call this method to add components to the app *!/
     add_components(comp) {
         this.canvas.canvas.content.components.push(comp);
     };
 
-    /* Call this method to add stored data to the app */
+    /!* Call this method to add stored data to the app *!/
     add_stored_data(storeObj){
         this.canvas.canvas.stored_data = storeObj;
     }
 
-    /* call this when you want return the canvas object to send it to Intercom */
+    /!* call this when you want return the canvas object to send it to Intercom *!/
     get_canvas() {
         return(this.canvas);
 
     }
-}
+}*/
 
 /* 
   This is an endpoint that Intercom will POST HTTP request when the card needs to be initialized.
@@ -72,7 +74,7 @@ app.post("/initialize", (request, response) => {
     const body = request.body;
 /* Create the canvas based on the teammates configurations */
 /* Create a new question canvas */
-let surveyCanvas = new CreateCanvas();
+let surveyCanvas = new canvas.Canvas();
 
 /* Create the single select option to get the rating */
 surveyCanvas.add_components({type: "single-select",
