@@ -70,45 +70,45 @@ class CreateCanvas{
   This can happen when your teammate inserts the app into a conversation composer, Messenger home settings or User Message.
   Params sent from Intercom contains for example `card_creation` parameter that was formed by your `configure` response.
 */
-app.post("/initialize", (request, response) => {
+app.post('/initialize', (request, response) => {
     const body = request.body;
-/* Create the canvas based on the teammates configurations */
-/* Create a new question canvas */
+    /* Create the canvas based on the teammates configurations */
+    /* Create a new question canvas */
+    let surveyCanvas = new CreateCanvas();
+    /* Create the single select option to get the rating */
+    surveyCanvas.add_components({type: "single-select",
+        id: "rating",
+        label: "Would you recommend Dynatrace to a friend or colleague",
+        options: [
+            {type: "option", id: "one", text: "1"},
+            {type: "option", id: "two", text: "2"},
+            {type: "option", id: "three", text: "3"},
+            {type: "option", id: "four", text: "4"},
+            {type: "option", id: "five", text: "5"},
+            {type: "option", id: "six", text: "6"},
+            {type: "option", id: "seven", text: "7"},
+            {type: "option", id: "eight", text: "8"},
+            {type: "option", id: "nine", text: "9"},
+            {type: "option", id: "ten", text: "10"}
+        ]
+    });
+    /* Create the question to explain the rating */
+    surveyCanvas.add_components({type: "input",
+        id: "feedback",
+        label: "Please provide a reason if possible for your rating"
+    });
+    /* And finally add a button to submit both user inputs */
+    surveyCanvas.add_components({ type: "button",
+            id: "question_submit",
+            label: "Submit form",
+            action: {
+                type: "submit"}
+        }
+    );
 
-/* Create the single select option to get the rating */
-surveyCanvas.add_components({type: "single-select",
-    id: "rating",
-    label: "Would you recommend Dynatrace to a friend or colleague",
-    options: [
-        {type: "option", id: "one", text: "1"},
-        {type: "option", id: "two", text: "2"},
-        {type: "option", id: "three", text: "3"},
-        {type: "option", id: "four", text: "4"},
-        {type: "option", id: "five", text: "5"},
-        {type: "option", id: "six", text: "6"},
-        {type: "option", id: "seven", text: "7"},
-        {type: "option", id: "eight", text: "8"},
-        {type: "option", id: "nine", text: "9"},
-        {type: "option", id: "ten", text: "10"}
-    ]
-});
-/* Create the question to explain the rating */
-surveyCanvas.add_components({type: "input",
-    id: "feedback",
-    label: "Please provide a reason if possible for your rating"
-});
-/* And finally add a button to submit both user inputs */
-surveyCanvas.add_components({ type: "button",
-        id: "question_submit",
-        label: "Submit form",
-        action: {
-            type: "submit"}
-    }
-);
 
 
-
-response.send(surveyCanvas.get_canvas());
+    response.send(surveyCanvas.get_canvas());
 });
 
 /* 
@@ -116,7 +116,7 @@ response.send(surveyCanvas.get_canvas());
   Interesting pattern used here is to use `current_canvas` and `stored_data` on this canvas to fetch some 
   detailed info about the card straight from Intercom instead of your backend.
 */
-app.post("/submit", (request, response) => {
+app.post('/submit', (request, response) => {
     const body = request.body;
     console.log(body);
     switch(body.component_id) {
