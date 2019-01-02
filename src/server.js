@@ -36,7 +36,7 @@ my_canvas.add_stored_data({some_data: "this data"})
 */
 class CreateCanvas{
 
-    /!* this is the main canvas object which you will use when creating an app *!/
+    /* this is the main canvas object which you will use when creating an app */
     constructor(){
         this.canvas = {
             canvas: {
@@ -48,17 +48,17 @@ class CreateCanvas{
         };
     }
 
-    /!* Call this method to add components to the app *!/
+    /* Call this method to add components to the app */
     add_components(comp) {
         this.canvas.canvas.content.components.push(comp);
     };
 
-    /!* Call this method to add stored data to the app *!/
+    /* Call this method to add stored data to the app */
     add_stored_data(storeObj){
         this.canvas.canvas.stored_data = storeObj;
     }
 
-    /!* call this when you want return the canvas object to send it to Intercom *!/
+    /* call this when you want return the canvas object to send it to Intercom */
     get_canvas() {
         return(this.canvas);
 
@@ -74,7 +74,6 @@ app.post("/initialize", (request, response) => {
     const body = request.body;
 /* Create the canvas based on the teammates configurations */
 /* Create a new question canvas */
-let surveyCanvas = new Canvas.constructor;
 
 /* Create the single select option to get the rating */
 surveyCanvas.add_components({type: "single-select",
@@ -94,10 +93,10 @@ surveyCanvas.add_components({type: "single-select",
     ]
 });
 /* Create the question to explain the rating */
-/*surveyCanvas.add_components({type: "input",
+surveyCanvas.add_components({type: "input",
     id: "feedback",
     label: "Please provide a reason if possible for your rating"
-});*/
+});
 /* And finally add a button to submit both user inputs */
 surveyCanvas.add_components({ type: "button",
         id: "question_submit",
