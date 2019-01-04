@@ -106,7 +106,7 @@ app.post('/initialize', (request, response) => {
             {type: "option", id: "six", text: "Agree"},
             {type: "option", id: "seven", text: "Strongly\nagree"}
         ],
-        value: "one"
+        value: "seven"
     });
     /* Create the question to explain the rating */
     surveyCanvas.add_components({type: "input",
