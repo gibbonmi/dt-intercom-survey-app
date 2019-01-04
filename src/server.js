@@ -97,13 +97,13 @@ app.post('/initialize', (request, response) => {
         id: "rating",
         label: "Dynatrace made it easy to solve your issue",
         options: [
-            {type: "option", id: "one", text: "Strongly disagree"},
+            {type: "option", id: "one", text: "Strongly\ndisagree"},
             {type: "option", id: "two", text: "Disagree"},
-            {type: "option", id: "three", text: "Somewhat disagree"},
+            {type: "option", id: "three", text: "Somewhat\ndisagree"},
             {type: "option", id: "four", text: "Neutral"},
-            {type: "option", id: "five", text: "Somewaht agree"},
+            {type: "option", id: "five", text: "Somewhat\nagree"},
             {type: "option", id: "six", text: "Agree"},
-            {type: "option", id: "seven", text: "Strongly agree"}
+            {type: "option", id: "seven", text: "Strongly\nagree"}
         ]
     });
     /* Create the question to explain the rating */
