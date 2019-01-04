@@ -76,20 +76,34 @@ app.post('/initialize', (request, response) => {
     /* Create a new question canvas */
     let surveyCanvas = new CreateCanvas();
     /* Create the single select option to get the rating */
+    // surveyCanvas.add_components({type: "single-select",
+    //     id: "rating",
+    //     label: "Would you recommend Dynatrace to a friend or colleague",
+    //     options: [
+    //         {type: "option", id: "one", text: "1"},
+    //         {type: "option", id: "two", text: "2"},
+    //         {type: "option", id: "three", text: "3"},
+    //         {type: "option", id: "four", text: "4"},
+    //         {type: "option", id: "five", text: "5"},
+    //         {type: "option", id: "six", text: "6"},
+    //         {type: "option", id: "seven", text: "7"},
+    //         {type: "option", id: "eight", text: "8"},
+    //         {type: "option", id: "nine", text: "9"},
+    //         {type: "option", id: "ten", text: "10"}
+    //     ]
+    // });
+
     surveyCanvas.add_components({type: "single-select",
         id: "rating",
-        label: "Would you recommend Dynatrace to a friend or colleague",
+        label: "Dynatrace made it easy to solve your issue",
         options: [
-            {type: "option", id: "one", text: "1"},
-            {type: "option", id: "two", text: "2"},
-            {type: "option", id: "three", text: "3"},
-            {type: "option", id: "four", text: "4"},
-            {type: "option", id: "five", text: "5"},
-            {type: "option", id: "six", text: "6"},
-            {type: "option", id: "seven", text: "7"},
-            {type: "option", id: "eight", text: "8"},
-            {type: "option", id: "nine", text: "9"},
-            {type: "option", id: "ten", text: "10"}
+            {type: "option", id: "one", text: "Strongly disagree"},
+            {type: "option", id: "two", text: "Disagree"},
+            {type: "option", id: "three", text: "Somewhat disagree"},
+            {type: "option", id: "four", text: "Neutral"},
+            {type: "option", id: "five", text: "Somewaht agree"},
+            {type: "option", id: "six", text: "Agree"},
+            {type: "option", id: "seven", text: "Strongly agree"}
         ]
     });
     /* Create the question to explain the rating */
