@@ -102,15 +102,9 @@ app.post('/initialize', (request, response) => {
 
     surveyCanvas.add_components({
         type: "text",
-        align: "center",
-        text: " "
-    });
-
-    surveyCanvas.add_components({
-        type: "text",
-        align: "right",
+        align: "left",
         style: "muted",
-        text: "Strongly agree >"
+        text: "< Strongly disagree"
     });
 
     surveyCanvas.add_components({
@@ -129,9 +123,9 @@ app.post('/initialize', (request, response) => {
 
     surveyCanvas.add_components({
         type: "text",
-        align: "left",
+        align: "right",
         style: "muted",
-        text: "< Strongly disagree"
+        text: "Strongly agree >"
     });
 
     /* Create the question to explain the rating */
