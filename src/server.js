@@ -94,9 +94,22 @@ app.post('/initialize', (request, response) => {
     // });
 
     surveyCanvas.add_components({
+        type: "text",
+        style: "header",
+        align: "center",
+        text: "Dynatrace made it easy to solve my issue."
+    });
+
+    surveyCanvas.add_components({
+        type: "text",
+        align: "left",
+        style: "muted",
+        text: "< Strongly disagree"
+    });
+
+    surveyCanvas.add_components({
         type: "single-select",
         id: "rating",
-        label: "Dynatrace made it easy to solve your issue",
         options: [
             {type: "option", id: "one", text: "1"},
             {type: "option", id: "two", text: "2"},
@@ -107,6 +120,14 @@ app.post('/initialize', (request, response) => {
             {type: "option", id: "seven", text: "7"}
         ]
     });
+
+    surveyCanvas.add_components({
+        type: "text",
+        align: "right",
+        style: "muted",
+        text: "Strongly agree >"
+    });
+
     /* Create the question to explain the rating */
     surveyCanvas.add_components({type: "input",
         id: "feedback",
@@ -120,8 +141,6 @@ app.post('/initialize', (request, response) => {
                 type: "submit"}
         }
     );
-
-
 
     response.send(surveyCanvas.get_canvas());
 });
