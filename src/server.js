@@ -94,19 +94,18 @@ app.post('/initialize', (request, response) => {
     // });
 
     surveyCanvas.add_components({
-        type: "dropdown",
+        type: "single-select",
         id: "rating",
         label: "Dynatrace made it easy to solve your issue",
         options: [
-            {type: "option", id: "seven", text: "Strongly agree"},
-            {type: "option", id: "six", text: "Agree"},
-            {type: "option", id: "five", text: "Somewhat agree"},
-            {type: "option", id: "four", text: "Neutral"},
-            {type: "option", id: "three", text: "Somewhat diagree"},
-            {type: "option", id: "two", text: "Disagree"},
-            {type: "option", id: "one", text: "Strongly disgree"}
-        ],
-        value: "one"
+            {type: "option", id: "one", text: "1"},
+            {type: "option", id: "two", text: "2"},
+            {type: "option", id: "three", text: "3"},
+            {type: "option", id: "four", text: "4"},
+            {type: "option", id: "five", text: "5"},
+            {type: "option", id: "six", text: "6"},
+            {type: "option", id: "seven", text: "7"}
+        ]
     });
     /* Create the question to explain the rating */
     surveyCanvas.add_components({type: "input",
