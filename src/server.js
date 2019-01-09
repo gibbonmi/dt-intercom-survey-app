@@ -158,7 +158,7 @@ app.post('/submit', (request, response) => {
             let submitCanvas = new CreateCanvas();
             submitCanvas.add_components({
                 type: "text",
-                text: "Thanks you for your feedback",
+                text: "Thank you for your feedback",
                 align: "center",
                 style: "header" });
             response.send(submitCanvas.get_canvas());
